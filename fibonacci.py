@@ -1,8 +1,10 @@
-def calc_fib(n):
-    if (n <= 1):
+def fav(n):
+    l=[0,1]
+    if n<=1:
         return n
-
-    return calc_fib(n - 1) + calc_fib(n - 2)
-
-n = int(input())
-print(calc_fib(n))
+    else:
+        for i in range(2,n+1):
+            l.append(l[i-2]+l[i-1])
+           
+    return l[-1]
+print(fav(int(input())))            
