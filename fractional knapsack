@@ -1,0 +1,36 @@
+
+
+def get_optimal_value(capacity, weights, values):
+    value = 0
+    d=[]
+    
+    for j in range(n):
+        d.append(values[j]/weights[j])
+    d=sorted(d)
+    while(capacity!=0 and d!=[]):
+        for j in range(n):   
+            if max(d)==(values[j]/weights[j]):
+                if weights[j]<=capacity:
+                    value+=values[j]
+                    capacity-=weights[j]
+                    d.remove(max(d))
+                    
+                else:
+                    
+                    value+=values[j]*capacity/weights[j] 
+                    capacity=0 
+        continue                  
+    return value                
+
+values=[]
+weights=[]
+
+data = list(map(int,input().split()))
+n, capacity = data[0:2]
+for i in range(n):
+    l=list(map(int,input().split()))
+    values.append(l[0])
+    weights.append(l[1])
+
+opt_value = get_optimal_value(capacity, weights, values)
+print("{:.3f}".format(opt_value))
